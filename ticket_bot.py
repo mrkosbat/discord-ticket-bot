@@ -368,7 +368,10 @@ async def tickets(ctx):
 if __name__ == "__main__":
     TOKEN = os.getenv('DISCORD_BOT_TOKEN')
     if not TOKEN:
-        print("Error: Please set DISCORD_BOT_TOKEN environment variable")
-        print("You can get your token from https://discord.com/developers/applications")
-    else:
-        bot.run(TOKEN)
+        print("Error: DISCORD_BOT_TOKEN environment variable not set!")
+        print("If running locally, create a .env file with your token")
+        print("If on Render/Railway, add the token in Environment Variables")
+        exit(1)
+    
+    print("Starting bot...")
+    bot.run(TOKEN)
